@@ -1,23 +1,27 @@
+// src/app.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ConfigModule } from '@nestjs/config';
-import { Driver } from './driver/driver.entity';
-import { Vehicle } from './vehicle/vehicle.entity';
-import { Transfer } from './transfer/transfer.entity';
+import { Driver } from './driver/entities/driver.entity';
+import { Vehicle } from './vehicle/entities/vehicle.entity';
+import { Transfer } from './transfer/entities/transfer.entity';
 
 @Module({
   imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: process.env.DB_HOST,
-      port: parseInt(process.env.DB_PORT),
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_DATABASE,
-      entities: [Driver, Vehicle, Transfer],
+      host: 'sql12.freesqldatabase.com',
+      port: 3306,
+      username: 'sql12728040',
+      password: '6teES33BYT',
+      database: 'sql12728040',
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
+    Driver,
+    Vehicle,
+    Transfer,
   ],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

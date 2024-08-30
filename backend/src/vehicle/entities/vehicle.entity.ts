@@ -5,15 +5,15 @@ export class Vehicle {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ unique: true })
+  @Column()
   vehicleNumber: string;
 
   @Column()
   vehicleType: string;
 
   @Column({ nullable: true })
-  pucCertificate: string;
+  pucCertificate?: string;
 
   @Column({ nullable: true })
-  insuranceCertificate: string;
+  insuranceCertificate?: string;
 }

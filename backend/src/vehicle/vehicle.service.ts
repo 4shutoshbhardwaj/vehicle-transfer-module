@@ -1,7 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { Vehicle } from './vehicle.entity';
+import { Vehicle } from './entities/vehicle.entity';
+import { CreateVehicleDto } from './dto/create-vehicle.dto';
+import { UpdateVehicleDto } from './dto/update-vehicle.dto';
 
 @Injectable()
 export class VehicleService {
@@ -10,7 +12,8 @@ export class VehicleService {
     private vehicleRepository: Repository<Vehicle>,
   ) {}
 
-  create(vehicle: Vehicle) {
+  create(createVehicleDto: CreateVehicleDto) {
+    const vehicle = this.vehicleRepository.create(createVehicleDto);
     return this.vehicleRepository.save(vehicle);
   }
 
@@ -20,5 +23,13 @@ export class VehicleService {
 
   findOne(id: number) {
     return this.vehicleRepository.findOneBy({ id });
+  }
+
+  update(id: number, updateVehicleDto: UpdateVehicleDto) {
+    return this.vehicleRepository.update(id, updateVehicleDto);
+  }
+
+  remove(id: number) {
+    return this.vehicleRepository.delete(id);
   }
 }
