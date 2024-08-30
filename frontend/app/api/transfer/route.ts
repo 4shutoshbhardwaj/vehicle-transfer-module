@@ -1,4 +1,4 @@
-// app/api/vehicle/route.ts
+
 import axios from 'axios';
 import { NextResponse } from 'next/server';
 

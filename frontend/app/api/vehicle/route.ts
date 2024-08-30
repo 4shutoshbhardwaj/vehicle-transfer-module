@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 
-// Handle GET requests for vehicles
 export async function GET() {
   try {
     const vehicles = [

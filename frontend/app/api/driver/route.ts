@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
 
-// Handle GET requests for drivers
 export async function GET() {
   try {
     const drivers = [

@@ -1,4 +1,3 @@
-// app/transfer/page.tsx
 
 "use client";
 

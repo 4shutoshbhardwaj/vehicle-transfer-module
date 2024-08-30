@@ -7,10 +7,9 @@ export default function HomePage() {
   const [vehicles, setVehicles] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch drivers from the backend
   const fetchDrivers = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/driver');  // Updated URL
+      const response = await fetch('http://localhost:3001/api/driver');
       if (!response.ok) {
         throw new Error('Failed to fetch drivers');
       }
@@ -21,10 +20,9 @@ export default function HomePage() {
     }
   };
 
-  // Fetch vehicles from the backend
   const fetchVehicles = async () => {
     try {
-      const response = await fetch('http://localhost:3001/api/vehicle');  // Updated URL
+      const response = await fetch('http://localhost:3001/api/vehicle');
       if (!response.ok) {
         throw new Error('Failed to fetch vehicles');
       }
